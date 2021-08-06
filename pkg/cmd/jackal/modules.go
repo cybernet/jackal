@@ -29,6 +29,7 @@ import (
 	"github.com/ortuman/jackal/pkg/module/xep0199"
 	"github.com/ortuman/jackal/pkg/module/xep0202"
 	"github.com/ortuman/jackal/pkg/module/xep0280"
+	"github.com/ortuman/jackal/pkg/module/xep0313"
 )
 
 var defaultModules = []string{
@@ -44,6 +45,7 @@ var defaultModules = []string{
 	xep0198.ModuleName,
 	xep0199.ModuleName,
 	xep0280.ModuleName,
+	xep0313.ModuleName,
 }
 
 var modFns = map[string]func(a *serverApp, cfg modulesConfig) module.Module{
@@ -125,5 +127,10 @@ var modFns = map[string]func(a *serverApp, cfg modulesConfig) module.Module{
 	// (https://xmpp.org/extensions/xep-0280.html)
 	xep0280.ModuleName: func(a *serverApp, _ modulesConfig) module.Module {
 		return xep0280.New(a.router, a.hosts, a.resMng, a.hk)
+	},
+	// XEP-0313: Message Archive Management
+	// (https://xmpp.org/extensions/xep-0313.html)
+	xep0313.ModuleName: func(a *serverApp, _ modulesConfig) module.Module {
+		return xep0313.New(a.router, a.rep, a.hk)
 	},
 }
