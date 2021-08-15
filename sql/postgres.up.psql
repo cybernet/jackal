@@ -164,7 +164,7 @@ SELECT enable_updated_at('roster_versions');
 CREATE TABLE archives (
     uid         VARCHAR(128) PRIMARY KEY,
     serial      SERIAL NOT NULL,
-    address     TEXT NOT NULL,
+    archive_id  TEXT NOT NULL,
     timestamp   BIGINT NOT NULL,
     sender      TEXT NOT NULL,
     target      TEXT NOT NULL,
@@ -173,7 +173,7 @@ CREATE TABLE archives (
 );
 
 CREATE INDEX IF NOT EXISTS i_archives_serial ON archives(serial);
-CREATE INDEX IF NOT EXISTS i_archives_address ON archives(address);
+CREATE INDEX IF NOT EXISTS i_archives_archive_id ON archives(archive_id);
 CREATE INDEX IF NOT EXISTS i_archives_timestamp ON archives(timestamp);
 CREATE INDEX IF NOT EXISTS i_archives_sender_target ON archives(sender, target);
 
