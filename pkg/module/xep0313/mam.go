@@ -52,8 +52,7 @@ func New(
 	return &Mam{
 		router: router,
 		rep:    rep,
-
-		hk: hk,
+		hk:     hk,
 	}
 }
 
@@ -80,7 +79,7 @@ func (m *Mam) MatchesNamespace(namespace string, _ bool) bool {
 	return namespace == mamNamespace
 }
 
-// ProcessIQ process a vCard iq.
+// ProcessIQ process a Mam iq.
 func (m *Mam) ProcessIQ(ctx context.Context, iq *stravaganza.IQ) error {
 	return nil
 }
@@ -102,6 +101,6 @@ func (m *Mam) Stop(_ context.Context) error {
 }
 
 func (m *Mam) onUserDeleted(ctx context.Context, execCtx *hook.ExecutionContext) error {
-	// TODO(ortuman): implement me!
+	// TODO(ortuman): implement me dude!
 	return nil
 }
