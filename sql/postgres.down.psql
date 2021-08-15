@@ -16,7 +16,6 @@
 
 DROP TABLE IF EXISTS vcards;
 DROP TABLE IF EXISTS archives;
-
 DROP TABLE IF EXISTS roster_versions;
 DROP TABLE IF EXISTS roster_items;
 DROP TABLE IF EXISTS roster_notifications;
