@@ -48,6 +48,7 @@ type Repository struct {
 	repository.Private
 	repository.Roster
 	repository.VCard
+	repository.Mam
 
 	host string
 	dsn  string
@@ -108,6 +109,7 @@ func (r *Repository) Start(ctx context.Context) error {
 	r.Private = &pgSQLPrivateRep{conn: db}
 	r.Roster = &pgSQLRosterRep{conn: db}
 	r.VCard = &pgSQLVCardRep{conn: db}
+	r.Mam = &pgSQLMamRep{conn: db}
 	return nil
 }
 

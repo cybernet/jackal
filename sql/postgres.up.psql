@@ -160,8 +160,8 @@ CREATE TABLE IF NOT EXISTS roster_versions (
 
 SELECT enable_updated_at('roster_versions');
 
--- archives
-CREATE TABLE archives (
+-- archive
+CREATE TABLE archive (
     uid         VARCHAR(128) PRIMARY KEY,
     serial      SERIAL NOT NULL,
     archive_id  TEXT NOT NULL,
@@ -172,10 +172,10 @@ CREATE TABLE archives (
     created_at  TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT NOW()
 );
 
-CREATE INDEX IF NOT EXISTS i_archives_serial ON archives(serial);
-CREATE INDEX IF NOT EXISTS i_archives_archive_id ON archives(archive_id);
-CREATE INDEX IF NOT EXISTS i_archives_timestamp ON archives(timestamp);
-CREATE INDEX IF NOT EXISTS i_archives_sender_target ON archives(sender, target);
+CREATE INDEX IF NOT EXISTS i_archive_serial ON archive(serial);
+CREATE INDEX IF NOT EXISTS i_archive_archive_id ON archive(archive_id);
+CREATE INDEX IF NOT EXISTS i_archive_timestamp ON archive(timestamp);
+CREATE INDEX IF NOT EXISTS i_archive_sender_target ON archive(sender, target);
 
 -- vcards
 
